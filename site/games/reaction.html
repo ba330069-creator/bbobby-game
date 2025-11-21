@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Reaction Time</title>
+  <link rel="stylesheet" href="../styles.css">
+  <style>#box{width:220px;height:120px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;cursor:pointer}</style>
+</head>
+<body>
+  <div class="container">
+    <a href="../index.html">← Back</a>
+    <h1>Reaction Time</h1>
+    <div class="card game-area">
+      <div id="box" style="background:#fee2e2">Wait for green...</div>
+      <div id="info" class="small">Best: <span id="best">—</span> ms</div>
+      <button id="start" class="btn">Start</button>
+    </div>
+  </div>
+  <script>
+    const box=document.getElementById('box'), start=document.getElementById('start'), bestEl=document.getElementById('best');
+    let startAt=0, timer=null, best=null;
+    start.addEventListener('click',()=>{
+      box.style.background='#f59e0b'; box.textContent='Get ready...'; clearTimeout(timer);
+      timer = setTimeout(()=>{ box.style.background='lightgreen'; box.textContent='CLICK!'; startAt=performance.now(); }, 1000 + Math.random()*2000);
+    });
+    box.addEventListener('click',()=>{
+      if(startAt===0){ box.textContent='Too soon! Press Start'; clearTimeout(timer); startAt=0; return; }
+      const dt = Math.round(performance.now()-startAt); box.textContent=`${dt} ms`;
+      best = best===null?dt:Math.min(best,dt); bestEl.textContent=best; startAt=0; box.style.background='#eef2ff';
+    });
+  </script>
+</body>
+</html>

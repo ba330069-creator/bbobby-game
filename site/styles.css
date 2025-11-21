@@ -1,0 +1,20 @@
+:root{--bg:#f6f9ff;--card:#ffffff;--accent:#3b82f6;--muted:#6b7280}
+*{box-sizing:border-box}
+body{font-family:Inter, system-ui, Arial, sans-serif;margin:0;background:var(--bg);color:#111}
+.container{max-width:980px;margin:36px auto;padding:20px}
+.header{display:flex;justify-content:space-between;align-items:center}
+.brand{font-weight:700;color:var(--accent)}
+.games{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:20px}
+.card{background:var(--card);border-radius:12px;padding:16px;box-shadow:0 6px 18px rgba(15,23,42,0.06)}
+.card h3{margin:0 0 8px}
+.card p{color:var(--muted);margin:0 0 12px}
+.btn{display:inline-block;padding:8px 12px;border-radius:8px;background:var(--accent);color:#fff;text-decoration:none}
+.footer{margin-top:28px;color:var(--muted);font-size:14px}
+.nav{display:flex;gap:8px}
+.nav a{color:var(--accent);text-decoration:none}
+
+/* Game pages */
+.game-area{display:flex;flex-direction:column;gap:12px;align-items:center}
+.grid{display:grid;grid-template-columns:repeat(3,100px);grid-gap:8px}
+.cell{width:100px;height:100px;background:#eef2ff;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:36px;cursor:pointer}
+.small{font-size:14px;color:var(--muted)}

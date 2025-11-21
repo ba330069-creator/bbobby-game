@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Rock Paper Scissors</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <div class="container">
+    <a href="../index.html">← Back</a>
+    <h1>Rock‑Paper‑Scissors</h1>
+    <div class="card game-area">
+      <div id="score">You 0 — 0 Computer</div>
+      <div class="controls" style="gap:12px;">
+        <button class="btn" data-m="rock">Rock</button>
+        <button class="btn" data-m="paper">Paper</button>
+        <button class="btn" data-m="scissors">Scissors</button>
+      </div>
+      <div id="result" class="small"></div>
+    </div>
+  </div>
+  <script>
+    const buttons = document.querySelectorAll('button[data-m]'), scoreEl = document.getElementById('score'), resultEl = document.getElementById('result');
+    let you=0, cpu=0;
+    function cpuPick(){ return ['rock','paper','scissors'][Math.floor(Math.random()*3)]; }
+    function decide(a,b){ if(a===b) return 0; if((a==='rock'&&b==='scissors')||(a==='paper'&&b==='rock')||(a==='scissors'&&b==='paper')) return 1; return -1; }
+    buttons.forEach(btn=>btn.addEventListener('click',()=>{ const m=btn.dataset.m, c=cpuPick(), d=decide(m,c); if(d===1){ you++; resultEl.textContent=`You: ${m} — Computer: ${c} — You win!`; } else if(d===-1){ cpu++; resultEl.textContent=`You: ${m} — Computer: ${c} — You lose`; } else resultEl.textContent=`You: ${m} — Computer: ${c} — Draw`; scoreEl.textContent=`You ${you} — ${cpu} Computer`; }))
+  </script>
+</body>
+</html>
