@@ -25,15 +25,4 @@ Files added:
 
 Enjoy! If you want, I can deploy this to GitHub Pages for you and verify the live URL.
 ```
-
-Direct site URL (points at the `site/` folder we added):
-
-- `https://252208-design.github.io/bbobby-game/site/index.html`
-
-Note: I pushed the changes to your fork during the publish step. The Pages site for the repository reports the canonical Pages URL is `https://252208-design.github.io/bbobby-game/`. If you want the new `site/` pages to be served from the repository root URL, we can either:
-
-- move the `site/` contents to the repository root (will overwrite the root `index.html`), or
-- change the Pages source to serve from the `/site` folder in repository settings (requires repository admin or GH API permissions).
-
-Tell me which option you prefer and I will proceed.
 # bbobby-game
